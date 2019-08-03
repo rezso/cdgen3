@@ -1,0 +1,12 @@
+#!/bin/bash -eu
+
+. 00-common
+
+# umount image
+umount    "$ROOTDIR/proc"	2>/dev/null || true
+umount    "$ROOTDIR/sys"	2>/dev/null || true
+umount    "$ROOTDIR/dev"	2>/dev/null || true
+umount    "$ROOTDIR/tmp"	2>/dev/null || true
+umount -d "$ROOTDIR/mnt"	2>/dev/null || true
+
+mksquashfs "$ROOTDIR" "$ROIMG" -b 1048576 -comp xz -noappend

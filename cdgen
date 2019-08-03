@@ -1,0 +1,111 @@
+#!/bin/bash -e
+
+. 00-common
+
+function hiba (){
+		echo $1
+		helptext=$(cat $DATADIR/help.txt)
+		printf "\e[0;31m $helptext\n"
+		exit
+}
+
+for i in "$@"
+do
+case $i in
+    UBK*)
+        DIST="$i"
+        DISTVER="${i/UBK/}"
+        export DIST=$i
+        export DISTVER="${i/UBK/}"
+        shift
+    ;;
+    gnome|cinnamon|mate|xfce|kde|lxqt|lxde|Lumina-DE)
+        DESKTOP="$i"
+        shift
+    ;;
+    --help)
+        hiba
+        shift
+    ;;
+    *)
+    	hiba
+    ;;
+esac
+done
+
+if [ ! -d data/$DIST ];then
+	hiba "Csak UBK3 lehet a disztribúció, ami most $DIST!"
+fi
+
+if [ -n "$DESKTOP" ]; then
+    case $DESKTOP in
+		gnome)
+			export DESKTOP=gnome
+			export DESKTOPNAME=GNOME
+			;;
+		cinnamon)
+			export DESKTOP=cinnamon
+			export DESKTOPNAME=Cinnamon
+			;;
+		mate)
+			export DESKTOP=mate
+			export DESKTOPNAME=MATE
+			;;
+		xfce)
+			export DESKTOP=xfce
+			export DESKTOPNAME=XFCE
+			;;
+		kde)
+			export DESKTOP=kde
+			export DESKTOPNAME=KDE
+			;;
+		lxqt)
+			export DESKTOP=lxqt
+			export DESKTOPNAME=LXQt
+			;;
+		lxde)
+			export DESKTOP=lxde
+			export DESKTOPNAME=LXDE
+			;;
+		lumina)
+			export DESKTOP=Lumina-DE
+			export DESKTOPNAME=Lumina-DE
+			;;
+			*)
+			hiba "Hibás desktop paraméter, mely most a $2!"
+			printf "\e[0;31m $helptext\n"
+			exit
+			;;
+	esac
+else
+	export DESKTOP=mate
+	export DESKTOPNAME=MATE
+fi
+
+mkdir -p $WORKDIR
+
+isoarch="amd64"
+
+export UHU_RELEASE="UHU-Linux ${DIST} ${DESKTOPNAME}"
+export UHU_RELEASE_FULL="UHU-Linux ${DIST}-${DESKTOP^^}-${ISODATE//-}-$isoarch"
+export release_file="${UHU_RELEASE_FULL// /-}"
+
+if [ -f packages_cd.txt ]; then
+	rm -f packages_cd.txt
+fi
+
+cp "$DATADIR"/$DIST/packages.cd.base.txt $BASEDIR/packages_cd.txt
+cat "$DATADIR"/$DIST/packages.$DESKTOP.txt >> $BASEDIR/packages_cd.txt
+cp -f "$DATADIR"/$DIST/sources.list "$DATADIR"/sources.list
+
+for i in [0-9][0-9]-*; do
+	if [ -x "$i" ]; then
+		case "$i" in
+		  *~|*.orig|*.rej|*.skip)
+			;;
+		  *)
+			"./$i"
+			;;
+		esac
+	fi
+done

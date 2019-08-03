@@ -1,0 +1,34 @@
+3 -> UBK1
+
+grub2 -> grub, a korábbi grub kidobva
+
+fonts-x.org-{100dpi,75dpi,misc}-iso-10646 -> fonts-x.org-iso-10646
+fonts-x.org-{100dpi,75dpi,misc}-other-> fonts-x.org-other
+fonts-x.org-misc-iso-8859-1-> fonts-x.org-iso-8859-1
+
+jpeg-tools -> jpeg-turbo-tools
+
+ubk1 -> ubk2
+
+kidobva:
+  iptables-utils
+  mailcount
+  mailx
+  net-tools
+  ntalk
+  subversion-tools
+  uhu-initscripts
+  x.org-apps
+
+ubk2 -> ubk3
+
+kidobva:
+  cursor-theme-bluecurve
+  gftp-gtk
+  iputils
+  min1200w
+  smp-utils
+  traceroute
+  udisks
+  x.org-video-sis
+  words

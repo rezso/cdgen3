@@ -1,0 +1,21 @@
+#!/bin/bash -eu
+
+. 00-common
+
+umount    "$ROOTDIR/proc"	2>/dev/null || true
+umount    "$ROOTDIR/sys"	2>/dev/null || true
+umount    "$ROOTDIR/dev"	2>/dev/null || true
+umount    "$ROOTDIR/tmp"	2>/dev/null || true
+umount -d "$ROOTDIR/mnt"	2>/dev/null || true
+umount -d "$ROOTDIR"		2>/dev/null || true
+
+grep "$ROOTDIR" /proc/mounts && exit 1
+
+rm -f "$BASEDIR"/installed_packages_$DESKTOP.txt
+
+# megmaradt cuccok törlése
+rm -rf --one-file-system "$DVDDIR"
+rm -rf "$ROOTDIR"
+rm -rf "$TMPDIR"
+rm -rf "$WORKDIR"
+

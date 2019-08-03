@@ -1,0 +1,64 @@
+#!/bin/bash -eu
+
+. 00-common
+
+# copy img
+cp -al "$ROIMG" "$DVDDIR/LiveOS/"
+cd "$DVDDIR/LiveOS/"
+md5sum -b "$ROIMG_NAME" > "$DVDDIR/md5sum"
+
+cd -
+
+echo "Creating ISO image..."
+
+mkdir -p "$ISODIR"
+
+mod_date=$(date -u +%Y-%m-%d-%H-%M-%S-00  | sed -e s/-//g)
+
+xorriso -as mkisofs \
+	--modification-date=${mod_date} \
+	-o "$ISODIR"/"$release_file".iso \
+	-A "UHU-Linux DVD Generator" \
+	-V "$cdlabel" \
+	-publisher "UHU-Linux Baráti Kör" \
+	-p "UHU-Linux DVD Generator" \
+	--protective-msdos-label \
+	-r -graft-points -no-pad \
+	--sort-weight 0 / \
+	--sort-weight 1 /boot \
+	--grub2-mbr ${DVDDIR}/boot/grub/i386-pc/boot_hybrid.img \
+	-iso_mbr_part_type 0x00 \
+	-e --interval:appended_partition_2:all:: \
+	-partition_offset 16 \
+	-b boot/grub/i386-pc/legacyeltorito.img \
+	-c boot.catalog \
+	-no-emul-boot \
+	-boot-load-size 4 \
+	-boot-info-table \
+	--grub2-boot-info \
+	-eltorito-alt-boot \
+	-append_partition 2 0xef ${DVDDIR}/efieltorito.img \
+	-no-emul-boot \
+	-full-iso9660-filenames \
+	-iso-level 3 \
+	$DVDDIR/
+
+sync
+
+echo -n "Calculating checksums..."
+cd "$ISODIR"
+md5sum -b "$release_file.iso" > "$ISODIR/$release_file.md5" &
+
+cd -
+
+wait
+echo "ISO done..."
+echo "ALL done... :)"
+
+# umount image
+umount    "$ROOTDIR/proc"	2>/dev/null || true
+umount    "$ROOTDIR/sys"	2>/dev/null || true
+umount    "$ROOTDIR/dev"	2>/dev/null || true
+umount    "$ROOTDIR/tmp"	2>/dev/null || true
+umount -d "$ROOTDIR/mnt"	2>/dev/null || true
+umount -d "$ROOTDIR"		2>/dev/null || true

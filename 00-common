@@ -1,0 +1,79 @@
+#!/bin/bash
+
+# sourced by bash
+
+# I know #!/bin/bash isn't needed, but it makes joe highlighting the syntax.
+
+set -e
+
+if [ $(id -u) != 0 ]; then
+	echo "Hey, you gotta be root!" >&2
+	exit 1
+fi
+
+export LC_ALL=en_US.UTF-8
+export LANG=C
+unset  LANGUAGE
+export lang="hu"
+
+export PATH=/sbin:/usr/sbin:/bin:/usr/bin
+
+unset SORTDIR_LOCALE
+unset SORTDIR_VERSCMP
+unset SORTDIR_REVERSE
+
+modprobe loop >/dev/null 2>&1 || true
+
+#loopdev="$(losetup -f)"
+loopdev="/dev/loop0"
+
+BASEDIR="$PWD"
+DATADIR="$BASEDIR/data"
+WORKDIR="$BASEDIR/Work"
+ROOTDIR="$WORKDIR/root"
+TMPDIR="$WORKDIR/tmp"
+DVDDIR="$WORKDIR/DVD"
+ISODIR="$BASEDIR/ISO"
+ISODATE=$(date '+%F')
+
+IMG_NAME="uhulinux.img"
+ROIMG_NAME="squashfs.img"
+IMG="$WORKDIR/$IMG_NAME"
+ROIMG="$WORKDIR/$ROIMG_NAME"
+
+PACKAGES_ALL="$WORKDIR"/packages_all.txt
+PACKAGES_CD="$WORKDIR"/packages_cd.txt
+
+cdlabel="UHU-Linux-Live"
+
+APT_STATEDIR_LIVE="/var/lib/apt"
+APT_CACHEDIR_LIVE="/var/cache/apt"
+DPKG_STATEDIR_LIVE="/var/lib/dpkg"
+
+APT_STATEDIR="/var/cdgen/lib/apt"
+APT_CACHEDIR="/var/cdgen/cache/apt"
+DPKG_STATEDIR="/var/cdgen/lib/dpkg"
+
+if [ -n "${CDGEN_APT_SOURCES:-}" ]; then
+	apt_sourcelist="-o Dir::Etc::SourceList=$CDGEN_APT_SOURCES"
+else
+	if [[ -f "/etc/apt/sources.list-cdgen" ]]; then
+		apt_sourcelist="-o Dir::Etc::SourceList=sources.list-cdgen"
+	else
+		apt_sourcelist="-o Dir::Etc::SourceList=$DATADIR/sources.list"
+	fi
+fi
+if [ -n "${CDGEN_APT_PREFERENCES:-}" ]; then
+	apt_preferences="-o Dir::Etc::Preferences=$CDGEN_APT_PREFERENCES"
+else
+	apt_preferences=""
+fi
+
+apt_statedir="-o Dir::State=$APT_STATEDIR"
+apt_cachedir="-o Dir::Cache=$APT_CACHEDIR"
+apt_arch="-o=APT::Architecture=amd64"
+apt_options="$apt_sourcelist $apt_arch $apt_preferences $apt_statedir $apt_cachedir"
+
+echo -e "  \\e[1m${0##*/} ...\\e[0m"
+
+mkdir -p "$ROOTDIR"

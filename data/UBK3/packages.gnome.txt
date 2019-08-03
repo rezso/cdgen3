@@ -1,0 +1,17 @@
+blueman
+evolution
+gedit
+gksu
+gnome2-mime-data
+gnome-core
+gnome-packagekit
+gnome-power-manager
+gnome-screensaver
+gnome-session
+gnome-tweak-tool
+gnome-weather
+gthumb
+kino
+planner
+sound-juicer
+vinagre

@@ -1,0 +1,31 @@
+#!/bin/bash -eu
+
+. 00-common
+
+#
+# Initialize dpkg and apt-get.
+#
+
+# a live/telepített rendszernek
+mkdir -p "$ROOTDIR$DPKG_STATEDIR_LIVE"/{info,updates}
+touch "$ROOTDIR$DPKG_STATEDIR_LIVE"/{available,status}
+mkdir -p "$ROOTDIR$APT_STATEDIR_LIVE"/lists/partial
+mkdir -p "$ROOTDIR$APT_CACHEDIR_LIVE"/archives/partial
+
+# csak a DVD elkészítéséhez
+mkdir -p "$DPKG_STATEDIR"/{info,updates}
+touch "$DPKG_STATEDIR"/{available,status}
+mkdir -p "$APT_STATEDIR"/lists/partial
+mkdir -p "$APT_CACHEDIR"/archives/partial
+
+apt-get \
+	$apt_options \
+	-o Debug::NoLocking="true" \
+	update
+
+# apt cache tisztítása
+apt-get \
+	$apt_options \
+	-o Dir::State::status="$DPKG_STATEDIR/status" \
+	autoclean
+

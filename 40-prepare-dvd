@@ -1,0 +1,81 @@
+#!/bin/bash -eu
+
+. 00-common
+
+# mappagyártás
+mkdir -p "$DVDDIR"/{efi/boot,boot/grub/i386-pc}
+if [ $DISTVER -gt 2 ]; then
+    mkdir -p "$DVDDIR"/LiveOS
+fi
+
+background=uhu-grub-bg-dark.png
+if [ -f $ROOTDIR/usr/share/backgrounds/UHU/ubk3.png ];then
+    background=ubk3.png
+fi
+# grub háttér
+cp -f $ROOTDIR/usr/share/backgrounds/UHU/$background $DVDDIR/boot/grub/background.png
+# grub.cfg
+cp $DATADIR/grub/grub.cfg $DVDDIR/boot/grub/grub.cfg
+# grub font
+cp $ROOTDIR/usr/share/grub/unicode.pf2 $DVDDIR/boot/grub/
+# grub-pc fájlok
+cp $ROOTDIR/usr/lib/grub/i386-pc/* $DVDDIR/boot/grub/i386-pc/
+
+# bootolható fájlok
+cp -a "$ROOTDIR/boot/memtest.bin" "$DVDDIR/memtest"
+
+if [ -L "$ROOTDIR"/boot/kernel.x86_64 ]; then
+	cp "$ROOTDIR"/boot/$(readlink "$ROOTDIR"/boot/kernel.x86_64) "$DVDDIR"/kernel
+	cp "$ROOTDIR"/boot/$(readlink "$ROOTDIR"/boot/initrd) "$DVDDIR"/initrd
+else
+	cp "$ROOTDIR"/boot/$(readlink "$ROOTDIR"/boot/bzImage.x86_64) "$DVDDIR"/kernel
+	cp "$ROOTDIR"/boot/$(readlink "$ROOTDIR"/boot/initramfs.x86_64.cpio.gz) "$DVDDIR"/initrd
+fi
+platform="x86_64-efi"
+efigrub_img="bootx64.efi"
+
+# efi grub fájlok
+mkdir -p $DVDDIR/boot/grub/${platform}
+cp $ROOTDIR/usr/lib/grub/${platform}/* $DVDDIR/boot/grub/${platform}/
+
+# grub i386-pc core image
+chroot $ROOTDIR \
+	grub-mkimage \
+	-d /usr/lib/grub/i386-pc \
+	-o /tmp/core.img \
+	-O i386-pc \
+	-p /boot/grub \
+	biosdisk \
+	iso9660
+
+# cdboot és core image összefűzése az El Torito -nek legacy boothoz
+cat $ROOTDIR/usr/lib/grub/i386-pc/cdboot.img \
+	$ROOTDIR/tmp/core.img >$DVDDIR/boot/grub/i386-pc/legacyeltorito.img
+
+# tisztítás
+rm $ROOTDIR/tmp/core.img
+
+# efi boot
+
+echo "Building ${efigrub_img}"
+
+chroot $ROOTDIR \
+	grub-mkimage \
+	-d /usr/lib/grub/${platform} \
+	-o /tmp/${efigrub_img} \
+	-O ${platform} \
+	-p /boot/grub \
+	iso9660
+
+cp $ROOTDIR/tmp/${efigrub_img} $DVDDIR/efi/boot/
+
+MOUNTPOINT=$(mktemp -d)
+
+# efieltorito.img gyártása
+truncate -s 4M $DVDDIR/efieltorito.img
+mkfs.fat -n MISO_EFI $DVDDIR/efieltorito.img &>/dev/null
+mount -o loop $DVDDIR/efieltorito.img "${MOUNTPOINT}"
+mkdir -p "${MOUNTPOINT}"/efi/boot
+mv $ROOTDIR/tmp/${efigrub_img} ${MOUNTPOINT}/efi/boot/
+umount ${MOUNTPOINT}
+rmdir ${MOUNTPOINT}

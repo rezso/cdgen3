@@ -1,0 +1,11 @@
+#!/bin/bash -eu
+
+. 00-common
+
+cd "$BASEDIR"
+
+# minden más tisztítása
+rm -rf --one-file-system "$DVDDIR"
+rm -rf "$ROOTDIR"
+rm -rf "$TMPDIR"
+rm -rf "$WORKDIR"

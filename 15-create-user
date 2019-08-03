@@ -1,0 +1,9 @@
+#!/bin/bash -eu
+
+. 00-common
+
+echo "Create users: uhu, root"
+chroot "$ROOTDIR" useradd -m uhu
+echo "Delete passwords for uhu, root"
+chroot "$ROOTDIR" passwd -d uhu &> /dev/null
+chroot "$ROOTDIR" passwd -d root &> /dev/null

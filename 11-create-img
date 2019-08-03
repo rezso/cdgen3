@@ -1,0 +1,47 @@
+#!/bin/bash -eu
+
+. 00-common
+
+# image size in dd format
+case $DESKTOP in
+	gnome)
+		SIZE="6900M"
+		;;
+	cinnamon)
+		SIZE="6900M"
+		;;
+	mate)
+		SIZE="7000M"
+		;;
+	xfce)
+		SIZE="6400M"
+		;;
+	kde)
+		SIZE="7400M"
+		;;
+	lxqt)
+		SIZE="6400M"
+		;;
+	lxde)
+		SIZE="6400M"
+		;;
+	Lumina-DE)
+		SIZE="6400M"
+		;;
+	*)
+		echo "Hibás desktop!"
+		exit
+		;;
+esac
+
+dd if=/dev/zero of="$IMG" bs=1 seek="$SIZE" count=0
+
+losetup "$loopdev" "$IMG"
+mkfs.ext4 -text4 -m2 -L"$cdlabel" "$loopdev"
+tune2fs -i0 -c0 -m2 -L"$cdlabel" "$loopdev"
+
+mkdir -p "$ROOTDIR"
+mount "$loopdev" "$ROOTDIR"
+mkdir -p "$TMPDIR"
+mkdir -p "$ROOTDIR/tmp"
+mount --bind "$TMPDIR" "$ROOTDIR/tmp"

@@ -1,0 +1,34 @@
+#!/bin/bash -eu
+
+. 00-common
+
+#
+# Check which packages should be put on the CD/DVD.
+#
+
+err=0
+
+if [ ! -f packages_cd.txt ]; then
+	echo "error: packages_cd.txt is required" >&2
+	exit 1
+fi
+
+grep '^Package: ' "$APT_STATEDIR"/lists/*Packages \
+  | cut -d' ' -f2 | sort -u > "$PACKAGES_ALL"
+
+sort -u < packages_cd.txt > "$PACKAGES_CD"
+unknown=$(comm -23 "$PACKAGES_CD" "$PACKAGES_ALL")
+if [ "$unknown" != "" ]; then
+	echo >&2
+	echo "*** ERROR ***" >&2
+	echo "The following packages are mentioned in packages_cd.txt" >&2
+	echo "but are not available:" >&2
+	echo "$unknown" | sed 's/^/  /' >&2
+	echo "Please fix it!" >&2
+	err=1
+fi
+comm -12 "$PACKAGES_CD" "$PACKAGES_ALL" \
+  > "$PACKAGES_CD".new
+mv "$PACKAGES_CD".new "$PACKAGES_CD"
+
+exit $err

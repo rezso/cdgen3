@@ -1,0 +1,35 @@
+		Használat: ./cdgen  [UBK3] [gnome|cinnamon|mate|xfce|kde|lxqt|lxde|lumina]
+
+		64 bites isót készít, 32 bites isóhoz az indítás a cdgen32 paranccsal megy, ugyanígy.
+		Az első paraméter a disztribúció neve, ami kötelező.
+		A másodikként megadható a desktop neve, ha nincs megadva, a desktop MATE lesz.
+
+        	Adatfájlok:
+
+        	data/backup/packages.cd.orig.txt: az uhu svn-ben lévő, eredeti cdgen csomaglistája
+        	data/packages.cd.base.txt: közös csomaglista, amit minden desktopnál használunk
+        	data/help.txt: ez a segítő szöveg
+        	data/DISTRO-CHANGES: a disztribúciók változásai
+        	data/grub/grub.cfg: az isóra kerülő grub konfigurációja
+        	data/uhu-3/* az uhu-3 emléke, már nem használjuk
+
+        	Az egyes disztribúciók desktop fájljainak adatmappái:
+        	data/UBK3
+
+        	Itt vannak az egyes dektopok csomaglistái, melyek a packages.cd.base.txt
+        	listáját egészítik ki, továbá a disztribúció csomagjainak elérést lehetővé tévő sources.list
+
+        	packages.gnome.txt: GNOME 3 csomaglista
+        	packages.cinnamon.txt: Cinnamon csomaglista
+        	packages.mate.txt: MATE csomaglista
+        	packages.xfce.txt: XFCE csomaglista
+        	packages.kde.txt: KDE 5 csomaglista
+        	packages.lxqt.txt: LXQT csomaglista
+        	packages.lxde.txt: LXDE csomaglista
+        	packages.lumina.txt: Lumina-DE csomaglista
+        	sources.list: sources.list az apt-hoz
+
+        	Az iso neve a DIST tartalma lesz, kiegészítve a desktop nevével és az aktuális dátummal,
+        	az "UHU-Linux" stringhez fűzve.
+        	Így ha a DIST tartalma "UBK3" (idézőjelek nélkül) és a desktop neve mate,
+        	akkor az iso neve UHU-Linux-UBK3-MATE-20151018.iso lesz.

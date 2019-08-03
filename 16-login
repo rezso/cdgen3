@@ -1,0 +1,56 @@
+#!/bin/bash -eu
+
+. 00-common
+
+# gdm autologin
+if [ -s "$ROOTDIR"/etc/gdm/custom.conf ]; then
+	echo "Set gdm autologin"
+	sed -ri -e '/^\s*AutomaticLogin/d' -e 's/\[daemon\]/[daemon]\nAutomaticLoginEnable=true\nAutomaticLogin=uhu/' "$ROOTDIR"/etc/gdm/custom.conf
+	# enable gdm
+	echo "Enable gdm"
+	if [ ! -L "$ROOTDIR"/etc/systemd/system/display-manager.service ]; then
+		chroot "$ROOTDIR" systemctl enable gdm
+	fi
+fi
+
+# lightdm autologin
+if [ -s "$ROOTDIR"/etc/lightdm/lightdm.conf ]; then
+	echo "Set lightdm autologin"
+	sed -i -e "s/#pam-service=lightdm/pam-service=lightdm-autologin/" "$ROOTDIR"/etc/lightdm/lightdm.conf
+	sed -i -e "s/#autologin-user=.*/autologin-user=uhu/" "$ROOTDIR"/etc/lightdm/lightdm.conf
+	sed -i -e "s/#autologin-session=.*/autologin-session=$DESKTOP/" "$ROOTDIR"/etc/lightdm/lightdm.conf
+	# enable lightdm
+	echo "Enable lightdm"
+	if [ ! -L "$ROOTDIR"/etc/systemd/system/display-manager.service ]; then
+		chroot "$ROOTDIR" systemctl enable lightdm
+	fi
+fi
+
+# sddm autologin
+if [ -s "$ROOTDIR"/etc/sddm.conf ]; then
+	echo "Set sddm autologin"
+	if [[ $DESKTOP = "kde" ]]; then
+		sed -i -e "s/User=.*/User=uhu/" "$ROOTDIR"/etc/sddm.conf
+		sed -i -e "s/^Session=.*/Session=plasma/" "$ROOTDIR"/etc/sddm.conf
+		sed -i -e "s/Current=.*/Current=breeze/" "$ROOTDIR"/etc/sddm.conf
+	else
+		sed -i -e "s/User=.*/User=uhu/" "$ROOTDIR"/etc/sddm.conf
+		sed -i -e "s/^Session=.*/Session=$DESKTOP/" "$ROOTDIR"/etc/sddm.conf
+	fi
+	# enable sddm
+	echo "Enable sddm"
+	if [ ! -L "$ROOTDIR"/etc/systemd/system/display-manager.service ]; then
+		chroot "$ROOTDIR" systemctl enable sddm
+	fi
+fi
+
+# lxdm autologin
+if [ -s "$ROOTDIR"/etc/lxdm/lxdm.conf ]; then
+	# enable lxdm
+	echo "Enable lxdm"
+	if [ ! -L "$ROOTDIR"/etc/systemd/system/display-manager.service ]; then
+		chroot "$ROOTDIR" systemctl enable lxdm
+	fi
+fi
+
+chroot "$ROOTDIR" systemctl set-default graphical.target

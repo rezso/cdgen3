@@ -1,0 +1,47 @@
+#!/bin/bash -eu
+
+. 00-common
+
+# add calamares icon to desktop
+echo "Add calamares install icon to desktop"
+
+chroot "$ROOTDIR" xdg-user-dirs-update
+
+if [ -f "$ROOTDIR"/usr/share/applications/calamares.desktop ]; then
+	mkdir -p "$ROOTDIR"/home/uhu/Asztal
+	cp "$ROOTDIR"/usr/share/applications/calamares*.desktop "$ROOTDIR"/home/uhu/Asztal/
+
+	chmod 755 "$ROOTDIR"/home/uhu/Asztal/calamares_live.desktop
+	chmod 755 "$ROOTDIR"/home/uhu/Asztal/calamares.desktop
+else
+	echo "calamares.desktop missing"
+fi
+
+# isolinux background a rendszerre is
+#cp -a -f "$DATADIR/isolinux-bg/$DESKTOP.png" "$ROOTDIR/usr/share/backgrounds/UHU/$DESKTOP.png"
+
+# default user settings
+echo "Set default user settings"
+case $DESKTOP in
+	gnome)
+		# echo 'gsettings set org.gnome.desktop.background show-desktop-icons true' >> "$ROOTDIR"/home/uhu/.profile
+		echo 'gsettings set org.gnome.shell enabled-extensions "["apps-menu@gnome-shell-extensions.gcampax.github.com","drive-menu@gnome-shell-extensions.gcampax.github.com","places-menu@gnome-shell-extensions.gcampax.github.com","window-list@gnome-shell-extensions.gcampax.github.com"]"' >> "$ROOTDIR"/home/uhu/.profile
+		;;
+	xfce)
+		mkdir -p "$ROOTDIR"/home/uhu/.config/xfce4/xfconf/xfce-perchannel-xml
+		# default panel
+		cp "$ROOTDIR"/etc/xdg/xfce4/panel/default.xml "$ROOTDIR"/home/uhu/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml
+		# default theme, icontheme
+		cp "$ROOTDIR"/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml "$ROOTDIR"/home/uhu/.config/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml
+		;;
+	lxqt)
+		mkdir -p "$ROOTDIR"/home/uhu/.config/lxqt/
+		for config in lxqt panel session windowmanagers; do
+			cp "$ROOTDIR"/etc/xdg/lxqt/${config}.conf "$ROOTDIR"/home/uhu/.config/lxqt/
+		done
+		;;
+	*)
+		;;
+esac
+
+chown 1000.999 -R "$ROOTDIR"/home/uhu
