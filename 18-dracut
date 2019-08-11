@@ -1,0 +1,9 @@
+#!/bin/bash -eu
+
+. 00-common
+
+cp "$DATADIR"/"$DIST"/dracut-run.sh "$ROOTDIR"/sbin/dracut-run.sh
+cp "$DATADIR"/"$DIST"/uhu-live.conf "$ROOTDIR"/etc/dracut.conf.d/uhu-live.conf
+chroot "$ROOTDIR" /sbin/dracut-run.sh
+rm -f "$ROOTDIR"/sbin/dracut-run.sh
+rm -f "$ROOTDIR"/etc/dracut.conf.d/uhu-live.conf

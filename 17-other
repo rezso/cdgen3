@@ -45,3 +45,6 @@ case $DESKTOP in
 esac
 
 chown 1000.999 -R "$ROOTDIR"/home/uhu
+
+rm -Rf "$ROOTDIR/root/.dbus"
+
