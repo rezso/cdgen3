@@ -2,8 +2,10 @@
 
 . 00-common
 
-cp "$DATADIR"/"$DIST"/dracut-run.sh "$ROOTDIR"/sbin/dracut-run.sh
+KERN=$(readlink "$ROOTDIR"/boot/kernel.x86_64)
+KERN=${KERN/kernel-/}
+KVER=$(echo $KERN | sed -e "s/\.x86_64//")
+
 cp "$DATADIR"/"$DIST"/uhu-live.conf "$ROOTDIR"/etc/dracut.conf.d/uhu-live.conf
-chroot "$ROOTDIR" /sbin/dracut-run.sh
-rm -f "$ROOTDIR"/sbin/dracut-run.sh
+chroot "$ROOTDIR" dracut -f -N -c /etc/dracut.conf.d/uhu-live.conf /boot/initrd-$KVER.x86_64.img
 rm -f "$ROOTDIR"/etc/dracut.conf.d/uhu-live.conf
