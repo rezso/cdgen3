@@ -4,8 +4,7 @@
 
 KERN=$(readlink "$ROOTDIR"/boot/kernel.x86_64)
 KERN=${KERN/kernel-/}
-KVER=$(echo $KERN | sed -e "s/\.x86_64//")
 
 cp "$DATADIR"/"$DIST"/uhu-live.conf "$ROOTDIR"/etc/dracut.conf.d/uhu-live.conf
-chroot "$ROOTDIR" dracut -f -N -c /etc/dracut.conf.d/uhu-live.conf /boot/initrd-$KVER.x86_64.img
+chroot "$ROOTDIR" dracut -f -N -c /etc/dracut.conf.d/uhu-live.conf /boot/initrd-$KERN.img $KERN
 rm -f "$ROOTDIR"/etc/dracut.conf.d/uhu-live.conf
