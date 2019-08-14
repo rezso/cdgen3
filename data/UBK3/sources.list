@@ -1,5 +1,4 @@
 # /etc/apt/sources.list
 
 # UBK
-#deb file:/opt/Build/pkg/UBK3/main/amd64 ./
 deb http://download.ubk.hu/pkg/UBK3/main/amd64 ./
