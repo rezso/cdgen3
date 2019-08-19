@@ -27,15 +27,14 @@ if [ -s "$ROOTDIR"/etc/lightdm/lightdm.conf ]; then
 fi
 
 # sddm autologin
-if [ -s "$ROOTDIR"/etc/sddm.conf ]; then
+if [ -s "$ROOTDIR"/etc/sddm.conf.d/autologin.conf ]; then
 	echo "Set sddm autologin"
 	if [[ $DESKTOP = "kde" ]]; then
-		sed -i -e "s/User=.*/User=uhu/" "$ROOTDIR"/etc/sddm.conf
-		sed -i -e "s/^Session=.*/Session=plasma/" "$ROOTDIR"/etc/sddm.conf
-		sed -i -e "s/Current=.*/Current=breeze/" "$ROOTDIR"/etc/sddm.conf
+		sed -i -e "s/User=.*/User=uhu/" "$ROOTDIR"/etc/sddm.conf.d/autologin.conf
+		sed -i -e "s/^Session=.*/Session=plasma/" "$ROOTDIR"/etc/sddm.conf.d/autologin.conf
 	else
-		sed -i -e "s/User=.*/User=uhu/" "$ROOTDIR"/etc/sddm.conf
-		sed -i -e "s/^Session=.*/Session=$DESKTOP/" "$ROOTDIR"/etc/sddm.conf
+		sed -i -e "s/User=.*/User=uhu/" "$ROOTDIR"/etc/sddm.conf.d/autologin.conf
+		sed -i -e "s/^Session=.*/Session=$DESKTOP/" "$ROOTDIR"/etc/sddm.conf.d/autologin.conf
 	fi
 	# enable sddm
 	echo "Enable sddm"

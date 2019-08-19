@@ -96,7 +96,7 @@ fi
 
 cp "$DATADIR"/$DIST/packages.cd.base.txt $BASEDIR/packages_cd.txt
 cat "$DATADIR"/$DIST/packages.$DESKTOP.txt >> $BASEDIR/packages_cd.txt
-cp -f "$DATADIR"/$DIST/sources.list "$DATADIR"/sources.list
+export apt_sourcelist="-o Dir::Etc::SourceList="$DATADIR"/$DIST/sources.list"
 
 for i in [0-9][0-9]-*; do
 	if [ -x "$i" ]; then

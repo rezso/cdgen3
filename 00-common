@@ -54,15 +54,6 @@ APT_STATEDIR="/var/cdgen/lib/apt"
 APT_CACHEDIR="/var/cdgen/cache/apt"
 DPKG_STATEDIR="/var/cdgen/lib/dpkg"
 
-if [ -n "${CDGEN_APT_SOURCES:-}" ]; then
-	apt_sourcelist="-o Dir::Etc::SourceList=$CDGEN_APT_SOURCES"
-else
-	if [[ -f "/etc/apt/sources.list-cdgen" ]]; then
-		apt_sourcelist="-o Dir::Etc::SourceList=sources.list-cdgen"
-	else
-		apt_sourcelist="-o Dir::Etc::SourceList=$DATADIR/sources.list"
-	fi
-fi
 if [ -n "${CDGEN_APT_PREFERENCES:-}" ]; then
 	apt_preferences="-o Dir::Etc::Preferences=$CDGEN_APT_PREFERENCES"
 else
