@@ -4,9 +4,7 @@
 
 # mappagyártás
 mkdir -p "$DVDDIR"/{efi/boot,boot/grub/i386-pc}
-if [ $DISTVER -gt 2 ]; then
-    mkdir -p "$DVDDIR"/LiveOS
-fi
+mkdir -p "$DVDDIR"/LiveOS
 
 background=uhu-grub-bg-dark.png
 if [ -f $ROOTDIR/usr/share/backgrounds/UHU/ubk3.png ];then
