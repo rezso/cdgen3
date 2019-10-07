@@ -30,10 +30,10 @@ apt-get \
 	--yes \
 	install $(cat packages_cd.txt)
 
-chroot "$ROOTDIR" /sbin/uhu-pkg postinst +
+chroot "$ROOTDIR" uhu-pkg postinst +
 
 # Prevent some services to be started in the livecd
-chroot "$ROOTDIR" /sbin/ldconfig -X
+chroot "$ROOTDIR" ldconfig -X
 touch "$ROOTDIR/etc/.updated"
 touch "$ROOTDIR/var/.updated"
 
