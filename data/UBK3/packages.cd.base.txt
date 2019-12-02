@@ -152,7 +152,6 @@ ndiswrapper
 networkmanager
 networkmanager-openvpn
 networkmanager-pptp
-nfs4-utils
 nfs-utils
 nmap
 notification-daemon
