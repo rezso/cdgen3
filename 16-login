@@ -2,6 +2,33 @@
 
 . 00-common
 
+case $DESKTOP in
+	gnome)
+		DESKTOPSTART=gnome-session
+		;;
+	cinnamon)
+		DESKTOPSTART=cinnamon-session-cinnamon
+		;;
+	mate)
+		DESKTOPSTART=mate-session
+		;;
+	xfce)
+		DESKTOPSTART=startxfce4
+		;;
+	kde)
+		DESKTOPSTART=startplasma-x11
+		;;
+	lxqt)
+		DESKTOPSTART=startlxqt
+		;;
+	lxde)
+		DESKTOPSTART=startlxde
+		;;
+	lumina)
+		DESKTOPSTART=start-lumina-desktop
+		;;
+esac
+	
 # gdm autologin
 if [ -s "$ROOTDIR"/etc/gdm/custom.conf ]; then
 	echo "Set gdm autologin"
@@ -45,6 +72,10 @@ fi
 
 # lxdm autologin
 if [ -s "$ROOTDIR"/etc/lxdm/lxdm.conf ]; then
+	echo "Set lxdm autologin"
+	sed -i -e "s/# autologin=.*/autologin=uhu/" "$ROOTDIR"/etc/lxdm/lxdm.conf
+	sed -i -e "s/# skip_password=.*/skip_password=1/" "$ROOTDIR"/etc/lxdm/lxdm.conf
+	sed -i -e "s/# session=.*/session=$DESKTOPSTART/" "$ROOTDIR"/etc/lxdm/lxdm.conf
 	# enable lxdm
 	echo "Enable lxdm"
 	if [ ! -L "$ROOTDIR"/etc/systemd/system/display-manager.service ]; then
