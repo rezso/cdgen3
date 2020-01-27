@@ -1,0 +1,4 @@
+# /etc/apt/sources.list
+
+# UBK
+deb http://download.ubk.hu/pkg/UBK4/dev/amd64 ./

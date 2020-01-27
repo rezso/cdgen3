@@ -34,7 +34,7 @@ esac
 done
 
 if [ ! -d data/$DIST ];then
-	hiba "Csak UBK3 lehet a disztribúció, ami most $DIST!"
+	hiba "Nem kezelt disztribúció: $DIST!"
 fi
 
 if [ -n "$DESKTOP" ]; then
