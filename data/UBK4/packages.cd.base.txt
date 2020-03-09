@@ -116,7 +116,6 @@ iproute2
 iptables
 irda-utils
 iscsitarget
-isdn4k-utils
 ispell
 jfsutils
 jpeg-turbo-tools
