@@ -6,12 +6,9 @@
 mkdir -p "$DVDDIR"/{efi/boot,boot/grub/i386-pc}
 mkdir -p "$DVDDIR"/LiveOS
 
-background=uhu-grub-bg-dark.png
-if [ -f $ROOTDIR/usr/share/backgrounds/UHU/ubk3.png ];then
-    background=ubk3.png
-fi
 # grub háttér
-cp -f $ROOTDIR/usr/share/backgrounds/UHU/$background $DVDDIR/boot/grub/background.png
+background=$(grep GRUB_BACKGROUND $ROOTDIR/etc/default/grub | sed -e "s/GRUB_BACKGROUND=//")
+cp -f $ROOTDIR$background $DVDDIR/boot/grub/background.png
 # grub.cfg
 cp $DATADIR/grub/grub.cfg $DVDDIR/boot/grub/grub.cfg
 # grub font
