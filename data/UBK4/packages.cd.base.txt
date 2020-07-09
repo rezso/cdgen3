@@ -133,7 +133,6 @@ lsb-release
 lsof
 lsscsi
 ltrace
-luit
 lvm
 man-db
 man-pages
@@ -238,7 +237,6 @@ vblade
 vi
 vim
 vorbis-tools
-w3m
 wget
 which
 whois
