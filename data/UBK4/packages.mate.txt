@@ -1,3 +1,2 @@
 mate
-lightdm
-lightdm-qt5-greeter
+sddm

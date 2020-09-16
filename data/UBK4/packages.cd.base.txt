@@ -49,7 +49,6 @@ dpkg
 dracut
 drbd-utils
 dselect
-dump
 dvdauthor
 dvd+rw-tools
 e2fsprogs
@@ -211,7 +210,6 @@ system-config-printer
 systemd
 tar
 tcpdump
-tcp-wrappers
 terminfo
 tree
 trunc
