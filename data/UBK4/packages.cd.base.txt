@@ -112,7 +112,6 @@ intltool
 iperf
 iproute2
 iptables
-irda-utils
 iscsitarget
 ispell
 jfsutils
@@ -161,7 +160,6 @@ opensshd
 openvpn
 os-prober
 pam-ldap
-pam-smb
 parted
 patch
 patchutils
@@ -235,6 +233,7 @@ vblade
 vi
 vim
 vorbis-tools
+webp-pixbuf-loader
 wget
 which
 whois

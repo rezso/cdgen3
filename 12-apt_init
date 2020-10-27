@@ -20,6 +20,7 @@ mkdir -p "$APT_CACHEDIR"/archives/partial
 
 apt-get \
 	$apt_options \
+	--allow-releaseinfo-change \
 	-o Debug::NoLocking="true" \
 	update
 
