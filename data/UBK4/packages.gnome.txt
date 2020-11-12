@@ -11,7 +11,5 @@ gnome-session
 gnome-tweak-tool
 gnome-weather
 gthumb
-kino
-planner
 sound-juicer
 vinagre
