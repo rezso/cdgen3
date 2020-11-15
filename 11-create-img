@@ -25,7 +25,7 @@ case $DESKTOP in
 	lxde)
 		SIZE="6400M"
 		;;
-	Lumina-DE)
+	lumina)
 		SIZE="6400M"
 		;;
 	*)

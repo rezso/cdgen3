@@ -19,7 +19,7 @@ case $i in
         export DISTVER="${i/UBK/}"
         shift
     ;;
-    gnome|cinnamon|mate|xfce|kde|lxqt|lxde|Lumina-DE)
+    gnome|cinnamon|mate|xfce|kde|lxqt|lxde|lumina)
         DESKTOP="$i"
         shift
     ;;
@@ -41,35 +41,27 @@ if [ -n "$DESKTOP" ]; then
     case $DESKTOP in
 		gnome)
 			export DESKTOP=gnome
-			export DESKTOPNAME=GNOME
 			;;
 		cinnamon)
 			export DESKTOP=cinnamon
-			export DESKTOPNAME=Cinnamon
 			;;
 		mate)
 			export DESKTOP=mate
-			export DESKTOPNAME=MATE
 			;;
 		xfce)
 			export DESKTOP=xfce
-			export DESKTOPNAME=XFCE
 			;;
 		kde)
 			export DESKTOP=kde
-			export DESKTOPNAME=KDE
 			;;
 		lxqt)
 			export DESKTOP=lxqt
-			export DESKTOPNAME=LXQt
 			;;
 		lxde)
 			export DESKTOP=lxde
-			export DESKTOPNAME=LXDE
 			;;
 		lumina)
-			export DESKTOP=Lumina-DE
-			export DESKTOPNAME=Lumina-DE
+			export DESKTOP=lumina
 			;;
 			*)
 			hiba "Hibás desktop paraméter, mely most a $2!"
@@ -79,14 +71,12 @@ if [ -n "$DESKTOP" ]; then
 	esac
 else
 	export DESKTOP=mate
-	export DESKTOPNAME=MATE
 fi
 
 mkdir -p $WORKDIR
 
 isoarch="amd64"
 
-export UHU_RELEASE="UHU-Linux ${DIST} ${DESKTOPNAME}"
 export UHU_RELEASE_FULL="UHU-Linux ${DIST}-${DESKTOP^^}-${ISODATE//-}-$isoarch"
 export release_file="${UHU_RELEASE_FULL// /-}"
 

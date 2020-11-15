@@ -14,7 +14,7 @@
         	data/uhu-3/* az uhu-3 emléke, már nem használjuk
 
         	Az egyes disztribúciók desktop fájljainak adatmappái:
-        	data/UBK3
+        	data/{UBK3,UBK4,...}
 
         	Itt vannak az egyes dektopok csomaglistái, melyek a packages.cd.base.txt
         	listáját egészítik ki, továbá a disztribúció csomagjainak elérést lehetővé tévő sources.list
