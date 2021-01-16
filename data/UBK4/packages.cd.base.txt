@@ -59,7 +59,6 @@ exif
 file
 findutils
 firefox
-flashplayer
 fonts-bitstream-vera
 fonts-dejavu
 fonts-freeware
@@ -77,7 +76,6 @@ foomatic-db
 foomatic-db-engine
 fortune
 fortune-hu
-freshplayerplugin
 fuse
 fuse-ntfs-3g
 fuse-smbnetfs

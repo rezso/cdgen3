@@ -32,3 +32,18 @@ kidobva:
   udisks
   x.org-video-sis
   words
+  
+ubk3 -> ubk4
+
+kidobva:
+    bladeenc
+    dump
+    flashplayer
+    freshplayerplugin
+    irda-utils
+    isdn4k-utils
+    luit
+    pam-smb
+    tcp-wrappers
+    w3m
+    
