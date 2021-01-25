@@ -184,7 +184,6 @@ rpcbind
 rp-pppoe
 rsync
 samba-server
-sbm
 schedtool
 screen
 sdparm
