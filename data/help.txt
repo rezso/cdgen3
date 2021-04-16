@@ -1,4 +1,4 @@
-		Használat: ./cdgen  [UBK3] [gnome|cinnamon|mate|xfce|kde|lxqt|lxde|lumina]
+		Használat: ./cdgen  [UBK3|UBK4|UBK5] [gnome|cinnamon|mate|xfce|kde|lxqt|lxde|lumina]
 
 		64 bites isót készít, 32 bites isóhoz az indítás a cdgen32 paranccsal megy, ugyanígy.
 		Az első paraméter a disztribúció neve, ami kötelező.

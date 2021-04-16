@@ -1,0 +1,4 @@
+atril
+lightdm
+lightdm-gtk-greeter
+xfce
