@@ -164,7 +164,6 @@ patchutils
 pciutils
 pcmciautils
 pcre
-pigz
 polkit
 powertop
 ppp
@@ -190,7 +189,6 @@ sdparm
 sed
 setserial
 shadow
-shash
 simple-scan
 smartmontools
 sox

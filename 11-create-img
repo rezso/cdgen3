@@ -5,28 +5,28 @@
 # image size in dd format
 case $DESKTOP in
 	gnome)
-		SIZE="6900M"
+		SIZE="7900M"
 		;;
 	cinnamon)
-		SIZE="6900M"
+		SIZE="7900M"
 		;;
 	mate)
-		SIZE="7000M"
+		SIZE="8000M"
 		;;
 	xfce)
-		SIZE="6400M"
-		;;
-	kde)
 		SIZE="7400M"
 		;;
+	kde)
+		SIZE="8400M"
+		;;
 	lxqt)
-		SIZE="6400M"
+		SIZE="7400M"
 		;;
 	lxde)
-		SIZE="6400M"
+		SIZE="7400M"
 		;;
 	lumina)
-		SIZE="6400M"
+		SIZE="7400M"
 		;;
 	*)
 		echo "Hibás desktop!"
