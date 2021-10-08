@@ -61,7 +61,6 @@ findutils
 firefox
 fonts-bitstream-vera
 fonts-dejavu
-fonts-freeware
 fonts-liberation
 fonts-libertine
 fonts-symbola
@@ -133,7 +132,6 @@ lvm
 man-db
 man-pages
 mc
-mcrypt
 mdadm
 memtest86+
 mesa

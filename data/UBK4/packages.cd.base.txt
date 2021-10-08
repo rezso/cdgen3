@@ -133,7 +133,6 @@ lvm
 man-db
 man-pages
 mc
-mcrypt
 mdadm
 memtest86+
 mesa
@@ -190,7 +189,6 @@ sdparm
 sed
 setserial
 shadow
-shash
 simple-scan
 smartmontools
 sox
