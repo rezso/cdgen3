@@ -140,7 +140,6 @@ lvm
 man-db
 man-pages
 mc
-mcrypt
 mdadm
 memtest86+
 mesa
