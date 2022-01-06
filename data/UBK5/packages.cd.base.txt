@@ -215,7 +215,6 @@ uhu-pkgutils
 uhu-sysinfo
 uhu-utils
 uhu-wallpapers-ubk
-uhu-zeroconf
 unzip
 upower
 usb-modeswitch

@@ -20,7 +20,7 @@ xorriso -as mkisofs \
 	-o "$ISODIR"/"$release_file".iso \
 	-A "UHU-Linux DVD Generator" \
 	-V "$cdlabel" \
-	-publisher "UHU-Linux Baráti Kör" \
+	-publisher "ubk.hu" \
 	-p "UHU-Linux DVD Generator" \
 	--protective-msdos-label \
 	-r -graft-points -no-pad \
