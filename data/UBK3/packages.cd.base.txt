@@ -191,7 +191,6 @@ rpcbind
 rp-pppoe
 rsync
 samba-server
-sbm
 schedtool
 screen
 sdparm
@@ -207,7 +206,6 @@ strace
 sudo
 synaptic
 sysklogd
-syslinux
 sysstat
 system-config-printer
 systemd

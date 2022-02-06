@@ -197,7 +197,6 @@ strace
 sudo
 synaptic
 sysklogd
-syslinux
 sysstat
 system-config-printer
 systemd
