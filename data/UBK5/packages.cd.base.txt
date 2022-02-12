@@ -109,7 +109,6 @@ intltool
 iperf
 iproute2
 iptables
-iscsitarget
 ispell
 jfsutils
 jpeg-turbo-tools
