@@ -84,8 +84,11 @@ if [ -f packages_cd.txt ]; then
 	rm -f packages_cd.txt
 fi
 
-cp "$DATADIR"/$DIST/packages.cd.base.txt $BASEDIR/packages_cd.txt
-cat "$DATADIR"/$DIST/packages.$DESKTOP.txt >> $BASEDIR/packages_cd.txt
+cp "$DATADIR"/$DIST/packages.cd.base.txt $BASEDIR/packages_cd.txt.tmp
+cat "$DATADIR"/$DIST/packages.$DESKTOP.txt >> $BASEDIR/packages_cd.txt.tmp
+cat $BASEDIR/packages_cd.txt.tmp | grep -v '^-' >> $BASEDIR/packages_cd.txt
+rm -f $BASEDIR/packages_cd.txt.tmp
+
 export apt_sourcelist="-o Dir::Etc::SourceList="$DATADIR"/$DIST/sources.list"
 
 for i in [0-9][0-9]-*; do
