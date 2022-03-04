@@ -23,10 +23,3 @@ apt-get \
 	--allow-releaseinfo-change \
 	-o Debug::NoLocking="true" \
 	update
-
-# apt cache tisztítása
-apt-get \
-	$apt_options \
-	-o Dir::State::status="$DPKG_STATEDIR/status" \
-	autoclean
-

@@ -4,6 +4,12 @@
 
 cd "$BASEDIR"
 
+# apt cache tisztítása
+apt-get \
+	$apt_options \
+	-o Dir::State::status="$DPKG_STATEDIR/status" \
+	clean
+	
 # minden más tisztítása
 rm -rf --one-file-system "$DVDDIR"
 rm -rf "$ROOTDIR"

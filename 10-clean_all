@@ -13,6 +13,12 @@ grep "$ROOTDIR" /proc/mounts && exit 1
 
 rm -f "$BASEDIR"/installed_packages_$DESKTOP.txt
 
+# apt cache tisztítása
+apt-get \
+	$apt_options \
+	-o Dir::State::status="$DPKG_STATEDIR/status" \
+	clean
+
 # megmaradt cuccok törlése
 rm -rf --one-file-system "$DVDDIR"
 rm -rf "$ROOTDIR"
