@@ -46,13 +46,3 @@ kidobva:
     pam-smb
     tcp-wrappers
     w3m
-  
-ubk4 -> ubk5
-
-kidobva:
-    fonts-freeware
-    uhu-zeroconf
-    mcrypt
-    pigz
-    shash
-    
