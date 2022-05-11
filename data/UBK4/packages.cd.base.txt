@@ -18,7 +18,6 @@ blktool
 bridge-utils
 btrfs-progs
 bzip2
-cairo
 calamares
 cdctl
 cdrdao
@@ -36,7 +35,6 @@ curlftpfs
 cursor-theme-x.org
 dbus
 dbus-launch
-dconf-editor
 desktop-file-utils
 dhcpcd
 dhcp-client
@@ -81,7 +79,6 @@ fuse-ntfs-3g
 fuse-smbnetfs
 fuse-sshfs
 gawk
-gconf-editor
 gettext
 gettext-tools
 gftp
@@ -134,7 +131,6 @@ man-pages
 mc
 mdadm
 memtest86+
-mesa
 minicom
 mp3info
 mpage
@@ -155,7 +151,6 @@ openssh
 opensshd
 openvpn
 os-prober
-pam-ldap
 parted
 patch
 patchutils
