@@ -14,7 +14,6 @@ bchunk
 bind
 bind-utils
 binutils
-bladeenc
 blktool
 bridge-utils
 btrfs-progs
