@@ -82,7 +82,7 @@ gettext
 gettext-tools
 gftp
 ghostscript
-gimp
+gimp3
 git
 gparted
 gpg
