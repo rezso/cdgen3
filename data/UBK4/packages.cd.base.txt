@@ -46,7 +46,6 @@ dosfstools
 dpkg
 dracut
 drbd-utils
-dselect
 dvdauthor
 dvd+rw-tools
 e2fsprogs
