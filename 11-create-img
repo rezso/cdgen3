@@ -7,9 +7,6 @@ case $DESKTOP in
 	gnome)
 		SIZE="7900M"
 		;;
-	cinnamon)
-		SIZE="7900M"
-		;;
 	mate)
 		SIZE="8000M"
 		;;
@@ -17,7 +14,7 @@ case $DESKTOP in
 		SIZE="7400M"
 		;;
 	kde)
-		SIZE="8400M"
+		SIZE="9000M"
 		;;
 	lxqt)
 		SIZE="7400M"

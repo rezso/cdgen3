@@ -1,17 +1,15 @@
-		Használat: ./cdgen  [UBK3|UBK4|UBK5] [gnome|cinnamon|mate|xfce|kde|lxqt|lxde|lumina]
+		Használat: ./cdgen  [UBK3|UBK4|UBK5] [gnome|mate|xfce|kde|lxqt|lxde|lumina]
 
-		64 bites isót készít, 32 bites isóhoz az indítás a cdgen32 paranccsal megy, ugyanígy.
+		64 bites isót készít.
 		Az első paraméter a disztribúció neve, ami kötelező.
 		A másodikként megadható a desktop neve, ha nincs megadva, a desktop MATE lesz.
 
         	Adatfájlok:
 
-        	data/backup/packages.cd.orig.txt: az uhu svn-ben lévő, eredeti cdgen csomaglistája
-        	data/packages.cd.base.txt: közös csomaglista, amit minden desktopnál használunk
+        	data/{UBK3,UBK4,...}/packages.cd.base.txt: közös csomaglista, amit minden desktopnál használunk
+        	data/grub/grub.cfg: az isóra kerülő grub konfigurációja
         	data/help.txt: ez a segítő szöveg
         	data/DISTRO-CHANGES: a disztribúciók változásai
-        	data/grub/grub.cfg: az isóra kerülő grub konfigurációja
-        	data/uhu-3/* az uhu-3 emléke, már nem használjuk
 
         	Az egyes disztribúciók desktop fájljainak adatmappái:
         	data/{UBK3,UBK4,...}
@@ -20,7 +18,6 @@
         	listáját egészítik ki, továbá a disztribúció csomagjainak elérést lehetővé tévő sources.list
 
         	packages.gnome.txt: GNOME 3 csomaglista
-        	packages.cinnamon.txt: Cinnamon csomaglista
         	packages.mate.txt: MATE csomaglista
         	packages.xfce.txt: XFCE csomaglista
         	packages.kde.txt: KDE 5 csomaglista

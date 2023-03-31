@@ -19,7 +19,14 @@ case $i in
         export DISTVER="${i/UBK/}"
         shift
     ;;
-    gnome|cinnamon|mate|xfce|kde|lxqt|lxde|lumina)
+    ubk*)
+        DIST="${i^^}"
+        DISTVER="${i/UBK/}"
+        export DIST=$i
+        export DISTVER="${i/UBK/}"
+        shift
+    ;;
+    gnome|mate|xfce|kde|lxqt|lxde|lumina)
         DESKTOP="$i"
         shift
     ;;
@@ -41,9 +48,6 @@ if [ -n "$DESKTOP" ]; then
     case $DESKTOP in
 		gnome)
 			export DESKTOP=gnome
-			;;
-		cinnamon)
-			export DESKTOP=cinnamon
 			;;
 		mate)
 			export DESKTOP=mate
