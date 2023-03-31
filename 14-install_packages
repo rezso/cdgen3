@@ -28,7 +28,7 @@ apt-get \
 	-o Debug::NoLocking="true" \
 	-o PackageManager::Configure="smart" \
 	--yes \
-	install $(cat packages_cd.txt)
+	install $(cat packages_cd.txt) | tee -a apt.log
 
 chroot "$ROOTDIR" uhu-pkg postinst +
 

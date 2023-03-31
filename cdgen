@@ -77,16 +77,18 @@ else
 	export DESKTOP=mate
 fi
 
+if [ -f packages_cd.txt ]; then
+	rm -f packages_cd.txt
+fi
+rm -f apt.log
+rm -f installed_packages*.txt
+
 mkdir -p $WORKDIR
 
 isoarch="amd64"
 
 export UHU_RELEASE_FULL="UHU-Linux ${DIST}-${DESKTOP^^}-${ISODATE//-}-$isoarch"
 export release_file="${UHU_RELEASE_FULL// /-}"
-
-if [ -f packages_cd.txt ]; then
-	rm -f packages_cd.txt
-fi
 
 cp "$DATADIR"/$DIST/packages.cd.base.txt $BASEDIR/packages_cd.txt.tmp
 cat "$DATADIR"/$DIST/packages.$DESKTOP.txt >> $BASEDIR/packages_cd.txt.tmp
