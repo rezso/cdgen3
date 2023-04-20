@@ -7,17 +7,13 @@
 # (grub, rsync, mkisofs, mksquashfs, trunc, cdtest, cksfv...) will run.
 #
 
-# glibc 2.4 needs a mounted /proc for the *at() system calls
-# if the running kernel does not directly support these calls.
-# Well, it seems that it's not needed since coreutils 5.96,
-# but it cannot hurt.
-trap "umount $ROOTDIR/proc" EXIT
+# trap "umount $ROOTDIR/proc" EXIT
 mkdir -p "$ROOTDIR/dev"
 mount --bind /dev "$ROOTDIR/dev"
 mkdir -p "$ROOTDIR/proc"
 mount -t proc proc "$ROOTDIR/proc"
 mkdir -p "$ROOTDIR/sys"
-mount -t sysfs sysfs "$ROOTDIR/sys"
+mount -t sysfs sys "$ROOTDIR/sys"
 
 apt-get \
 	$apt_options \

@@ -1,3 +1,0 @@
-cinnamon
-gnome-terminal
-sddm
