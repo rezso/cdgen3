@@ -54,7 +54,7 @@ if [ -s "$ROOTDIR"/etc/lightdm/lightdm.conf ]; then
 fi
 
 # sddm autologin
-if [ -s "$ROOTDIR"/etc/sddm.conf.d/default.conf ]; then
+if [ -s "$ROOTDIR"/etc/sddm.conf.d/sddm.conf ]; then
 	echo "Set sddm autologin"
 	if [[ $DESKTOP = "kde" ]]; then
 		sed -i -e "s/User=.*/User=uhu/" "$ROOTDIR"/etc/sddm.conf.d/sddm.conf
