@@ -1,5 +1,4 @@
 7zip
-a2ps
 acl
 acpitool
 aoetools
@@ -56,7 +55,6 @@ exif
 file
 findutils
 firefox
-fonts-bitstream-vera
 fonts-dejavu
 fonts-liberation
 fonts-libertine
@@ -160,7 +158,6 @@ ppp
 procps
 psacct
 psmisc
-psutils
 pwgen
 rar
 rdate
