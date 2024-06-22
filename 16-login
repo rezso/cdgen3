@@ -54,14 +54,16 @@ if [ -s "$ROOTDIR"/etc/lightdm/lightdm.conf ]; then
 fi
 
 # sddm autologin
-if [ -s "$ROOTDIR"/etc/sddm.conf.d/sddm.conf ]; then
+if [ -s "$ROOTDIR"/usr/lib/sddm/sddm.conf.d/sddm.conf ]; then
 	echo "Set sddm autologin"
+	mkdir -p "$ROOTDIR"/etc/sddm.conf.d
+	cp "$DATADIR"/sddm/live.conf "$ROOTDIR"/etc/sddm.conf.d/live.conf
 	if [[ $DESKTOP = "kde" ]]; then
-		sed -i -e "s/User=.*/User=uhu/" "$ROOTDIR"/etc/sddm.conf.d/sddm.conf
-		sed -i -e "s/^Session=.*/Session=plasma/" "$ROOTDIR"/etc/sddm.conf.d/sddm.conf
+		sed -i -e "s/User=.*/User=uhu/" "$ROOTDIR"/etc/sddm.conf.d/live.conf
+		sed -i -e "s/^Session=.*/Session=plasma/" "$ROOTDIR"/etc/sddm.conf.d/live.conf
 	else
-		sed -i -e "s/User=.*/User=uhu/" "$ROOTDIR"/etc/sddm.conf.d/sddm.conf
-		sed -i -e "s/^Session=.*/Session=$DESKTOP/" "$ROOTDIR"/etc/sddm.conf.d/sddm.conf
+		sed -i -e "s/User=.*/User=uhu/" "$ROOTDIR"/etc/sddm.conf.d/live.conf
+		sed -i -e "s/^Session=.*/Session=$DESKTOP/" "$ROOTDIR"/etc/sddm.conf.d/live.conf
 	fi
 	# enable sddm
 	echo "Enable sddm"

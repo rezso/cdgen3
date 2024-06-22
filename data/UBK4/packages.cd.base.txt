@@ -81,7 +81,6 @@ gettext-tools
 gftp
 ghostscript
 gimp3
-git
 gparted
 gpg
 gphoto2
@@ -101,7 +100,6 @@ hplip
 htop
 imagemagick
 inetutils
-intltool
 iperf
 iproute2
 iptables
@@ -159,7 +157,6 @@ ppp
 procps
 psacct
 psmisc
-psutils
 pwgen
 rar
 rdate

@@ -1,4 +1,3 @@
 kde
 kde-apps
 sddm
-sddm-theme-breeze

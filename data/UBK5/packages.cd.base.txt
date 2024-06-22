@@ -79,7 +79,6 @@ gettext-tools
 gftp
 ghostscript
 gimp3
-git
 gparted
 gpg
 gphoto2
@@ -99,7 +98,6 @@ hplip
 htop
 imagemagick
 inetutils
-intltool
 iperf
 iproute2
 iptables
@@ -138,7 +136,6 @@ nfs-utils
 nmap
 nscd
 numlockx
-openipmi
 open-iscsi
 openldap
 openssh
