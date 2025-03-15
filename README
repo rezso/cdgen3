@@ -1,4 +1,4 @@
-Használat: ./cdgen  [UBK3] [gnome|cinnamon|mate|xfce|kde|lxqt|lxde|lumina]
+Használat: ./cdgen  [UBK3] [gnome|mate|xfce|kde|lxqt]
 
 Csak 64 bites isót készít.
 Az első paraméter a disztribúció neve, ami kötelező.
@@ -19,13 +19,10 @@ Itt vannak az egyes dektopok csomaglistái, melyek a packages.cd.base.txt
 listáját egészítik ki, továbá a disztribúció csomagjainak elérést lehetővé tévő sources.list
 
 packages.gnome.txt: GNOME 3 csomaglista
-packages.cinnamon.txt: Cinnamon csomaglista
 packages.mate.txt: MATE csomaglista
 packages.xfce.txt: XFCE csomaglista
 packages.kde.txt: KDE 5 csomaglista
 packages.lxqt.txt: LXQT csomaglista
-packages.lxde.txt: LXDE csomaglista
-packages.lumina.txt: Lumina-DE csomaglista
 sources.list: sources.list az apt-hoz
 
 Az iso neve a DIST tartalma lesz, kiegészítve a desktop nevével és az aktuális dátummal,

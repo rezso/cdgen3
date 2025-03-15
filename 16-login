@@ -6,9 +6,6 @@ case $DESKTOP in
 	gnome)
 		DESKTOPSTART=gnome-session
 		;;
-	cinnamon)
-		DESKTOPSTART=cinnamon-session-cinnamon
-		;;
 	mate)
 		DESKTOPSTART=mate-session
 		;;
@@ -20,12 +17,6 @@ case $DESKTOP in
 		;;
 	lxqt)
 		DESKTOPSTART=startlxqt
-		;;
-	lxde)
-		DESKTOPSTART=startlxde
-		;;
-	lumina)
-		DESKTOPSTART=start-lumina-desktop
 		;;
 esac
 	

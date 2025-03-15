@@ -26,7 +26,7 @@ case $i in
         export DISTVER="${i/UBK/}"
         shift
     ;;
-    gnome|mate|xfce|kde|lxqt|lxde|lumina)
+    gnome|mate|xfce|kde|lxqt)
         DESKTOP="$i"
         shift
     ;;
@@ -60,12 +60,6 @@ if [ -n "$DESKTOP" ]; then
 			;;
 		lxqt)
 			export DESKTOP=lxqt
-			;;
-		lxde)
-			export DESKTOP=lxde
-			;;
-		lumina)
-			export DESKTOP=lumina
 			;;
 			*)
 			hiba "Hibás desktop paraméter, mely most a $2!"

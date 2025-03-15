@@ -1,4 +1,0 @@
-lumina
-lumina-calculator
-lumina-pdf
-sddm

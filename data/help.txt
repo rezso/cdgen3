@@ -1,4 +1,4 @@
-		Használat: ./cdgen  [UBK3|UBK4|UBK5] [gnome|mate|xfce|kde|lxqt|lxde|lumina]
+		Használat: ./cdgen  [UBK3|UBK4|UBK5] [gnome|mate|xfce|kde|lxqt]
 
 		64 bites isót készít.
 		Az első paraméter a disztribúció neve, ami kötelező.
@@ -22,8 +22,6 @@
         	packages.xfce.txt: XFCE csomaglista
         	packages.kde.txt: KDE 5 csomaglista
         	packages.lxqt.txt: LXQT csomaglista
-        	packages.lxde.txt: LXDE csomaglista
-        	packages.lumina.txt: Lumina-DE csomaglista
         	sources.list: sources.list az apt-hoz
 
         	Az iso neve a DIST tartalma lesz, kiegészítve a desktop nevével és az aktuális dátummal,

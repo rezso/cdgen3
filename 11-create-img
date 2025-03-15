@@ -19,12 +19,6 @@ case $DESKTOP in
 	lxqt)
 		SIZE="7400M"
 		;;
-	lxde)
-		SIZE="7400M"
-		;;
-	lumina)
-		SIZE="7400M"
-		;;
 	*)
 		echo "Hibás desktop!"
 		exit
