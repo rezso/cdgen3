@@ -61,7 +61,7 @@ if [ -n "$DESKTOP" ]; then
 		lxqt)
 			export DESKTOP=lxqt
 			;;
-			*)
+		*)
 			hiba "Hibás desktop paraméter, mely most a $2!"
 			printf "\e[0;31m $helptext\n"
 			exit

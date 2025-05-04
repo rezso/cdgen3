@@ -1,6 +1,5 @@
 7zip
 acpitool
-aoetools
 apt
 at
 avahi
@@ -9,12 +8,10 @@ bash-completion
 bchunk
 bind
 bind-utils
-blktool
 bridge-utils
 btrfs-progs
 bzip2
 calamares
-cdctl
 cdrdao
 cdrkit
 chrony
@@ -37,7 +34,6 @@ dracut
 drbd-utils
 dvd+rw-tools
 e2fsprogs
-enscript
 ethtool
 exfat-utils
 exaile
@@ -152,7 +148,6 @@ reiserfsprogs
 rpcbind
 rp-pppoe
 rsync
-schedtool
 screen
 sdparm
 sed
