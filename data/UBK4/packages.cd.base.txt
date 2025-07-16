@@ -1,4 +1,4 @@
-uhu-sy7zip
+7zip
 a2ps
 acl
 acpitool
