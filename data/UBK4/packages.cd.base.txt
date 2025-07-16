@@ -1,4 +1,4 @@
-7zip
+uhu-sy7zip
 a2ps
 acl
 acpitool
@@ -138,7 +138,6 @@ nfs-utils
 nmap
 nscd
 numlockx
-openipmi
 open-iscsi
 openldap
 openssh
@@ -199,8 +198,6 @@ uhu-base
 uhu-pixmaps
 uhu-pkg
 uhu-pkgutils
-uhu-sysinfo
-uhu-utils
 uhu-wallpapers-ubk
 unzip
 upower
