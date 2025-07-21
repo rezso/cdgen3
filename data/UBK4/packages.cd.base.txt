@@ -199,8 +199,6 @@ uhu-base
 uhu-pixmaps
 uhu-pkg
 uhu-pkgutils
-uhu-sysinfo
-uhu-utils
 uhu-wallpapers-ubk
 unzip
 upower
