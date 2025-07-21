@@ -136,10 +136,8 @@ networkmanager-openvpn
 networkmanager-pptp
 nfs-utils
 nmap
-nscd
 numlockx
 open-iscsi
-openipmi
 openldap
 openssh
 opensshd

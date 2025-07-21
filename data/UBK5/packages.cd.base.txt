@@ -188,7 +188,6 @@ webp-pixbuf-loader
 wget
 which
 whois
-wireless-tools
 wvdial
 xauth
 xbindkeys
