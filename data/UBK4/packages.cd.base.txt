@@ -138,8 +138,8 @@ nfs-utils
 nmap
 nscd
 numlockx
-openipmi
 open-iscsi
+openipmi
 openldap
 openssh
 opensshd

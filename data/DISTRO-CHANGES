@@ -43,6 +43,46 @@ kidobva:
     irda-utils
     isdn4k-utils
     luit
+    nscd
     pam-smb
     tcp-wrappers
     w3m
+    
+ubk4 -> ubk5
+
+kidobva:
+    a2ps
+    acl (dep)
+    aoetools
+    bc
+    binutils (dep)
+    blktool
+    cdctl
+    cracklib (dep)
+    cryptsetup (dep)
+    curlftpfs
+    dhcpcd (dep)
+    dhcp-server
+    dvdauthor
+    enscript
+    fonts-bitstream-vera
+    gettext
+    gettext-tools
+    hplip
+    ispell
+    nscd
+    rar
+    samba-server (dep)
+    schedtool
+    setserial
+    uhu-sysinfo
+    uhu-utils
+    vi
+    vim
+    vorbis-tools
+
+    sddm-theme-breeze
+    
+új:
+    bluez
+    iw

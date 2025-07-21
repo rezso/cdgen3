@@ -8,6 +8,7 @@ bash-completion
 bchunk
 bind
 bind-utils
+bluez
 bridge-utils
 btrfs-progs
 bzip2
@@ -61,8 +62,6 @@ fuse-ntfs-3g
 fuse-smbnetfs
 fuse-sshfs
 gawk
-gettext
-gettext-tools
 gftp
 ghostscript
 gimp3
@@ -87,6 +86,7 @@ inetutils
 iperf
 iproute2
 iptables
+iw
 jfsutils
 jpeg-turbo-tools
 kbd
