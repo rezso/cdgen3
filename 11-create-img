@@ -5,7 +5,7 @@
 # image size in dd format
 case $DESKTOP in
 	gnome)
-		SIZE="7900M"
+		SIZE="9000M"
 		;;
 	mate)
 		SIZE="8000M"
