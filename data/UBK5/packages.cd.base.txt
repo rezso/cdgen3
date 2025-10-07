@@ -1,11 +1,9 @@
 7zip
-acpitool
 apt
 at
 avahi
 bash
 bash-completion
-bchunk
 bind
 bind-utils
 bluez
@@ -64,7 +62,7 @@ fuse-sshfs
 gawk
 gftp
 ghostscript
-gimp3
+gimp
 gparted
 gpg
 gphoto2
@@ -77,7 +75,6 @@ gtk-update-icon-cache
 gutenprint
 gvfs
 gzip
-hashalot
 hddtemp
 hdparm
 htop
@@ -102,8 +99,6 @@ lmsensors
 logrotate
 lsb-release
 lsof
-lsscsi
-ltrace
 lvm
 man-db
 man-pages
@@ -143,8 +138,6 @@ rdate
 rdesktop
 rdiff-backup
 recode
-reiser4progs
-reiserfsprogs
 rpcbind
 rp-pppoe
 rsync

@@ -5,6 +5,10 @@
 KERN=$(readlink "$ROOTDIR"/boot/kernel.x86_64)
 KERN=${KERN/kernel-/}
 
+# /etc/initrd-release
+touch "$ROOTDIR"/etc/initrd-release
+
 cp "$DATADIR"/"$DIST"/uhu-live.conf "$ROOTDIR"/etc/dracut.conf.d/uhu-live.conf
 chroot "$ROOTDIR" dracut --force -N -c /etc/dracut.conf.d/uhu-live.conf /boot/initrd-$KERN.img $KERN
 rm -f "$ROOTDIR"/etc/dracut.conf.d/uhu-live.conf
+rm -f "$ROOTDIR"/etc/initrd-release
