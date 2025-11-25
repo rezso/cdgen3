@@ -1,0 +1,8 @@
+# /etc/apt/sources.list
+
+# deb file:/mnt/other/Build/pkg/RN1/dev/amd64 ./
+# deb file:/mnt/other/Build/pkg/RN1/main/amd64 ./
+deb file:/usr/src/UHUBUILD/packages-RN1/amd64 ./
+
+# UBK
+# deb http://download.rezso.net/pkg/RN1/main/amd64 ./

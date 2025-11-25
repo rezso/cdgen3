@@ -12,18 +12,11 @@ function hiba (){
 for i in "$@"
 do
 case $i in
-    UBK*)
+    RN*)
         DIST="$i"
-        DISTVER="${i/UBK/}"
+        DISTVER="${i/RN/}"
         export DIST=$i
-        export DISTVER="${i/UBK/}"
-        shift
-    ;;
-    ubk*)
-        DIST="${i^^}"
-        DISTVER="${i/UBK/}"
-        export DIST=$i
-        export DISTVER="${i/UBK/}"
+        export DISTVER="${i/RN/}"
         shift
     ;;
     gnome|mate|xfce|kde|lxqt)

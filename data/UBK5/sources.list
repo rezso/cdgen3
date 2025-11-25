@@ -1,4 +1,0 @@
-# /etc/apt/sources.list
-
-# UBK
-deb http://download.ubk.hu/pkg/UBK5/main/amd64 ./

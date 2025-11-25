@@ -6,12 +6,6 @@
 # Initialize dpkg and apt-get.
 #
 
-# a live/telepített rendszernek
-mkdir -p "$ROOTDIR$DPKG_STATEDIR_LIVE"/{info,updates}
-touch "$ROOTDIR$DPKG_STATEDIR_LIVE"/{available,status}
-mkdir -p "$ROOTDIR$APT_STATEDIR_LIVE"/lists/partial
-mkdir -p "$ROOTDIR$APT_CACHEDIR_LIVE"/archives/partial
-
 # csak a DVD elkészítéséhez
 mkdir -p "$DPKG_STATEDIR"/{info,updates}
 touch "$DPKG_STATEDIR"/{available,status}

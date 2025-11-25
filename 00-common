@@ -46,13 +46,9 @@ PACKAGES_CD="$WORKDIR"/packages_cd.txt
 
 cdlabel="UHU-Linux-Live"
 
-APT_STATEDIR_LIVE="/var/lib/apt"
-APT_CACHEDIR_LIVE="/var/cache/apt"
-DPKG_STATEDIR_LIVE="/var/lib/dpkg"
-
-APT_STATEDIR="/var/cdgen/lib/apt"
-APT_CACHEDIR="/var/cdgen/cache/apt"
-DPKG_STATEDIR="/var/cdgen/lib/dpkg"
+APT_STATEDIR="$ROOTDIR/var/lib/apt"
+APT_CACHEDIR="$ROOTDIR/var/cache/apt"
+DPKG_STATEDIR="$ROOTDIR/var/lib/dpkg"
 
 if [ -n "${CDGEN_APT_PREFERENCES:-}" ]; then
 	apt_preferences="-o Dir::Etc::Preferences=$CDGEN_APT_PREFERENCES"
