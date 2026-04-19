@@ -8,16 +8,16 @@ case $DESKTOP in
 		SIZE="9000M"
 		;;
 	mate)
-		SIZE="8000M"
-		;;
-	xfce)
-		SIZE="7400M"
-		;;
-	kde)
 		SIZE="9000M"
 		;;
+	xfce)
+		SIZE="9000M"
+		;;
+	kde)
+		SIZE="10000M"
+		;;
 	lxqt)
-		SIZE="7400M"
+		SIZE="9000M"
 		;;
 	*)
 		echo "Hibás desktop!"

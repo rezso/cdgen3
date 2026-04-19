@@ -17,7 +17,7 @@ cp $ROOTDIR/usr/share/grub/unicode.pf2 $DVDDIR/boot/grub/
 cp $ROOTDIR/usr/lib/grub/i386-pc/* $DVDDIR/boot/grub/i386-pc/
 
 # bootolható fájlok
-cp -a "$ROOTDIR/boot/memtest.bin" "$DVDDIR/memtest"
+cp -a "$ROOTDIR/boot/mt86plus" "$DVDDIR/memtest"
 
 if [ -L "$ROOTDIR"/boot/kernel.x86_64 ]; then
 	cp "$ROOTDIR"/boot/$(readlink "$ROOTDIR"/boot/kernel.x86_64) "$DVDDIR"/kernel

@@ -7,7 +7,6 @@ bash-completion
 bind
 bind-utils
 bluez
-bridge-utils
 btrfs-progs
 bzip2
 calamares
@@ -60,7 +59,6 @@ fuse-ntfs-3g
 fuse-smbnetfs
 fuse-sshfs
 gawk
-gftp
 ghostscript
 gimp
 gparted
@@ -106,7 +104,6 @@ mc
 mdadm
 memtest86+
 minicom
-mp3info
 mpage
 mplayer
 networkmanager
@@ -125,7 +122,6 @@ parted
 patch
 patchutils
 pciutils
-pcmciautils
 pcre
 polkit
 powertop
@@ -147,7 +143,6 @@ sed
 shadow
 simple-scan
 smartmontools
-sox
 squashfs-tools
 strace
 sudo
