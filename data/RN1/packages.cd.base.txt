@@ -5,12 +5,10 @@ avahi
 bash
 bash-completion
 bind
-bind-utils
 bluez
 btrfs-progs
 bzip2
 calamares
-cdrdao
 cdrkit
 chrony
 claws-mail
@@ -34,7 +32,6 @@ dvd+rw-tools
 e2fsprogs
 ethtool
 exfat-utils
-exaile
 exif
 file
 findutils
@@ -43,13 +40,6 @@ fonts-dejavu
 fonts-liberation
 fonts-libertine
 fonts-symbola
-fonts-unicode
-fonts-x.org-base
-fonts-x.org-iso-10646
-fonts-x.org-iso-8859-1
-fonts-x.org-other
-fonts-x.org-ttf
-fonts-x.org-type1
 foomatic-db
 foomatic-db-engine
 fortune
@@ -74,7 +64,6 @@ gutenprint
 gvfs
 gzip
 hddtemp
-hdparm
 htop
 imagemagick
 inetutils
@@ -82,7 +71,6 @@ iperf
 iproute2
 iptables
 iw
-jfsutils
 jpeg-turbo-tools
 kbd
 kernel
@@ -104,7 +92,6 @@ mc
 mdadm
 memtest86+
 minicom
-mpage
 mplayer
 networkmanager
 networkmanager-openvpn
@@ -113,7 +100,6 @@ nfs-utils
 nmap
 numlockx
 open-iscsi
-openldap
 openssh
 opensshd
 openvpn
@@ -127,7 +113,6 @@ polkit
 powertop
 ppp
 procps
-psacct
 psmisc
 pwgen
 rdate
@@ -138,7 +123,6 @@ rpcbind
 rp-pppoe
 rsync
 screen
-sdparm
 sed
 shadow
 simple-scan
@@ -184,15 +168,12 @@ xdg-user-dirs-gtk
 xdg-utils
 xfsprogs
 xinit
-xkb-utils
 xkeyboard-config
-x.org-font-utils
 x.org-input-evdev
 x.org-input-synaptics
 x.org-input-vmmouse
 x.org-input-void
 x.org-server
-x.org-utils
 x.org-video-amdgpu
 x.org-video-dummy
 x.org-video-fbdev

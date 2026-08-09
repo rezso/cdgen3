@@ -35,7 +35,7 @@ case $DESKTOP in
 		;;
 	lxqt)
 		mkdir -p "$ROOTDIR"/home/uhu/.config/lxqt/
-		for config in lxqt panel session windowmanagers; do
+		for config in lxqt session windowmanagers; do
 			cp "$ROOTDIR"/usr/share/lxqt/${config}.conf "$ROOTDIR"/home/uhu/.config/lxqt/
 		done
 		;;
